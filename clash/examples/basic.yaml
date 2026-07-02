@@ -1,0 +1,56 @@
+# Clash example config.
+# This file is only a template. Do not put real proxy nodes in this public repository.
+
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - localhost.ptlogin2.qq.com
+
+proxies:
+  # Put real nodes in your private local config only.
+  - name: Proxy
+    type: socks5
+    server: 127.0.0.1
+    port: 1080
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+
+rule-providers:
+  ai:
+    type: http
+    behavior: classical
+    path: ./ruleset/ai.yaml
+    url: https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/clash/ruleset/ai.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,ai,Proxy
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
