@@ -1,0 +1,28 @@
+# Common AI service rules for Surge.
+# Use with: RULE-SET,<url>,Proxy
+
+# OpenAI / ChatGPT
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net
+
+# Anthropic / Claude
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+
+# Google Gemini
+DOMAIN,gemini.google.com
+DOMAIN,ai.google.dev
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+
+# Perplexity
+DOMAIN-SUFFIX,perplexity.ai
+
+# Poe
+DOMAIN-SUFFIX,poe.com
+
+# Cursor / coding AI
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,cursor.com
