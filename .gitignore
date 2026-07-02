@@ -1,0 +1,48 @@
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Environment and secrets
+.env
+.env.*
+*.secret
+*.secrets
+secrets/
+private/
+
+# Proxy subscriptions and real nodes
+subscriptions/
+subscribes/
+nodes/
+proxies/
+providers/private/
+*.node
+*.sub
+*.subscription
+
+# Keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa
+id_ed25519
+wireguard-private-key*
+
+# Local-only configs
+*.local
+*.local.yaml
+*.local.yml
+*.local.conf
+*.mobileconfig
