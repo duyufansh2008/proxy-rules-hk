@@ -1,72 +1,69 @@
 # proxy-rules-hk
 
-Personal rules and configuration templates for **Clash**, **Surge**, **Quantumult X**, **Loon** and other proxy clients.
+Routing rule sets for Clash, Surge, Quantumult X, Loon and compatible clients.
 
-> ⚠️ This repository is public. Do **not** commit subscription URLs, proxy nodes, UUIDs, passwords, tokens, private keys, WireGuard private keys, API keys, or any paid service credentials.
-
-## Structure
+## Behavior
 
 ```text
-proxy-rules-hk/
-├── clash/
-│   ├── ruleset/          # Clash rule-provider files
-│   ├── providers/        # Provider templates; no real nodes
-│   └── examples/         # Clash example configs
-├── surge/
-│   ├── ruleset/          # Surge RULE-SET files
-│   ├── modules/          # Surge modules
-│   └── examples/         # Surge example configs
-├── quantumult-x/
-│   ├── filter/           # Quantumult X filter rules
-│   └── rewrite/          # Quantumult X rewrite rules
-├── loon/
-│   └── plugins/          # Loon plugin templates
-└── docs/
-    └── security.md       # Safety checklist
+Selected rule sets -> Proxy
+Everything else    -> DIRECT
 ```
 
-## Raw file base URL
+## Raw base
 
 ```text
 https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/
 ```
 
-## Clash example
+## Files
+
+| Client | AI | Social | Combined |
+|---|---|---|---|
+| Clash | `clash/ruleset/ai.yaml` | `clash/ruleset/social.yaml` | `clash/ruleset/proxy.yaml` |
+| Surge | `surge/ruleset/ai.list` | `surge/ruleset/social.list` | `surge/ruleset/proxy.list` |
+| Quantumult X | `quantumult-x/filter/ai.list` | `quantumult-x/filter/social.list` | `quantumult-x/filter/proxy.list` |
+| Loon | `loon/ruleset/ai.list` | `loon/ruleset/social.list` | `loon/ruleset/proxy.list` |
+
+## Clash
 
 ```yaml
 rule-providers:
-  ai:
+  hk_proxy:
     type: http
     behavior: classical
-    path: ./ruleset/ai.yaml
-    url: https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/clash/ruleset/ai.yaml
+    path: ./ruleset/hk-proxy.yaml
+    url: https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/clash/ruleset/proxy.yaml
     interval: 86400
 
 rules:
-  - RULE-SET,ai,Proxy
-  - GEOIP,CN,DIRECT
-  - MATCH,Proxy
+  - RULE-SET,hk_proxy,Proxy
+  - MATCH,DIRECT
 ```
 
-## Surge example
+## Surge
 
 ```ini
 [Rule]
-RULE-SET,https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/surge/ruleset/ai.list,Proxy
-GEOIP,CN,DIRECT
-FINAL,Proxy
+RULE-SET,https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/surge/ruleset/proxy.list,Proxy
+FINAL,DIRECT
 ```
 
-## Current rule sets
+## Quantumult X
 
-| Tool | File | Purpose |
-|---|---|---|
-| Clash | `clash/ruleset/ai.yaml` | Common AI service domains |
-| Surge | `surge/ruleset/ai.list` | Common AI service domains |
+```ini
+[filter_remote]
+https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/quantumult-x/filter/proxy.list, tag=HK Proxy Rules, enabled=true
+```
 
-## Maintenance rules
+## Loon
 
-- Keep real proxy nodes outside this repository.
-- Put only rules, templates and documentation here.
-- Before every commit, check for sensitive strings such as `token`, `password`, `uuid`, `private_key`, `subscription`, `airport`, `server`, `passwd`.
-- Prefer small, clearly named rule files rather than one huge mixed file.
+```ini
+[Remote Rule]
+https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/loon/ruleset/proxy.list, policy=Proxy, tag=HK Proxy Rules, enabled=true
+```
+
+## Security
+
+Do not commit real nodes, subscription links, credentials, keys, tokens, passwords or private account data.
+
+See `docs/domains.md` and `docs/security.md`.
