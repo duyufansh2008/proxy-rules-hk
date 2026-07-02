@@ -1,0 +1,37 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+
+proxies:
+  - name: Proxy
+    type: socks5
+    server: 127.0.0.1
+    port: 1080
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+
+rule-providers:
+  ai:
+    type: http
+    behavior: classical
+    path: ./ruleset/ai.yaml
+    url: https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/clash/ruleset/ai.yaml
+    interval: 86400
+  social:
+    type: http
+    behavior: classical
+    path: ./ruleset/social.yaml
+    url: https://raw.githubusercontent.com/duyufansh2008/proxy-rules-hk/main/clash/ruleset/social.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,ai,Proxy
+  - RULE-SET,social,Proxy
+  - MATCH,DIRECT
