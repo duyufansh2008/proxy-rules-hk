@@ -1,0 +1,8 @@
+HOST-SUFFIX,openai.com,Proxy
+HOST-SUFFIX,chatgpt.com,Proxy
+HOST-SUFFIX,claude.ai,Proxy
+HOST-SUFFIX,anthropic.com,Proxy
+HOST-SUFFIX,tiktok.com,Proxy
+HOST-SUFFIX,tiktokcdn.com,Proxy
+HOST-SUFFIX,tiktokv.com,Proxy
+FINAL,DIRECT
