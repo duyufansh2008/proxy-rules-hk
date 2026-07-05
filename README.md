@@ -15,6 +15,14 @@
 ```
 
 
+### 交互式网页生成器
+
+本项目提供 GitHub Pages 静态网页生成器，用户可以按客户端、所在地和广告拦截开关生成配置文件：
+
+```text
+https://duyufansh2008.github.io/proxy-rules-hk/
+```
+
 ### 订阅链接
 
 原始文件基址：
@@ -97,6 +105,14 @@ Matched rule sets -> Proxy
 Everything else   -> DIRECT
 ```
 
+
+### Interactive web generator
+
+This project includes a GitHub Pages static generator where users can choose a client, region mode, and ad-blocking option to generate a config file:
+
+```text
+https://duyufansh2008.github.io/proxy-rules-hk/
+```
 
 ### Subscription URLs
 
