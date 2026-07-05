@@ -13,8 +13,9 @@ payload:
   - DOMAIN-SUFFIX,anthropic.com
   - DOMAIN-SUFFIX,claude.ai
 
-  # Google Gemini
+  # Google Gemini / AI Studio
   - DOMAIN,gemini.google.com
+  - DOMAIN,aistudio.google.com
   - DOMAIN,ai.google.dev
   - DOMAIN-SUFFIX,generativelanguage.googleapis.com
 

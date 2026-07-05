@@ -3,8 +3,12 @@ HOST-SUFFIX,chatgpt.com,Proxy
 HOST-SUFFIX,oaistatic.com,Proxy
 HOST-SUFFIX,oaiusercontent.com,Proxy
 HOST-SUFFIX,openaiapi-site.azureedge.net,Proxy
-HOST-SUFFIX,claude.ai,Proxy
 HOST-SUFFIX,anthropic.com,Proxy
+HOST-SUFFIX,claude.ai,Proxy
+HOST,gemini.google.com,Proxy
+HOST,aistudio.google.com,Proxy
+HOST,ai.google.dev,Proxy
+HOST-SUFFIX,generativelanguage.googleapis.com,Proxy
 HOST-SUFFIX,perplexity.ai,Proxy
 HOST-SUFFIX,poe.com,Proxy
 HOST-SUFFIX,cursor.sh,Proxy
