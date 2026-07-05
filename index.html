@@ -3,66 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Generate client-specific proxy rule configs for Mainland China, Hong Kong, Macau and other restricted regions.">
   <title>Proxy Rules Config Builder</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <main class="app-shell">
-    <section class="hero">
-      <p class="eyebrow">proxy-rules-hk · GitHub Pages</p>
-      <h1>交互式代理配置生成器</h1>
-      <p>选择客户端、所在地和是否开启广告拦截，生成可复制或下载的配置文件链接。规则默认不包含节点、订阅或任何私人凭据。</p>
+    <section class="hero card glass">
+      <div class="hero-copy">
+        <p class="eyebrow">proxy-rules-hk · GitHub Pages</p>
+        <h1 data-i18n="heroTitle">优雅的代理规则配置生成器</h1>
+        <p data-i18n="heroSubtitle">选择客户端、所在地和广告拦截开关，即时生成可下载、可复制的配置文件。不会写入真实节点、订阅或私人凭据。</p>
+      </div>
+      <div class="language-switch" aria-label="Language switch">
+        <button class="pill active" type="button" data-lang="zh">中文</button>
+        <button class="pill" type="button" data-lang="en">English</button>
+      </div>
     </section>
 
     <section class="builder" aria-label="配置生成器">
       <div class="card step">
         <span class="step-number">1</span>
-        <h2>选择客户端</h2>
+        <h2 data-i18n="clientTitle">选择客户端</h2>
         <div class="choice-grid" id="clientChoices"></div>
       </div>
 
       <div class="card step">
         <span class="step-number">2</span>
-        <h2>选择所在地</h2>
+        <h2 data-i18n="regionTitle">选择所在地</h2>
         <div class="choice-grid" id="regionChoices"></div>
       </div>
 
-      <div class="card step">
+      <div class="card step accent-card">
         <span class="step-number">3</span>
-        <h2>广告拦截</h2>
+        <h2 data-i18n="adblockTitle">广告拦截</h2>
         <label class="toggle">
           <input type="checkbox" id="adblockToggle">
-          <span>开启广告拦截规则</span>
+          <span data-i18n="adblockToggle">开启广告拦截规则</span>
         </label>
-        <p class="hint">广告规则引用 blackmatrix7 的公开规则集，可能存在误拦截，建议按需启用。</p>
+        <p class="hint" data-i18n="adblockHint">广告规则引用 blackmatrix7 的公开规则集，可能存在误拦截，建议按需启用。</p>
       </div>
     </section>
 
     <section class="card result">
-      <div>
-        <p class="eyebrow">Result</p>
-        <h2 id="resultTitle">Surge · 中国大陆 · 无广告拦截</h2>
-        <p id="resultDescription"></p>
+      <div class="result-top">
+        <div>
+          <p class="eyebrow">Result</p>
+          <h2 id="resultTitle">Surge · 中国大陆 · 无广告拦截</h2>
+          <p id="resultDescription"></p>
+        </div>
+        <div class="format-badge" id="formatBadge">.conf</div>
       </div>
       <div class="actions">
-        <a class="button primary" id="downloadLink" download>下载配置</a>
-        <button class="button" id="copyLinkButton" type="button">复制下载链接</button>
-        <button class="button" id="copyConfigButton" type="button">复制配置内容</button>
+        <a class="button primary" id="downloadLink" download data-i18n="download">下载配置</a>
+        <button class="button" id="copyLinkButton" type="button" data-i18n="copyLink">复制下载链接</button>
+        <button class="button" id="copyConfigButton" type="button" data-i18n="copyConfig">复制配置内容</button>
       </div>
       <textarea id="configPreview" spellcheck="false" aria-label="配置预览"></textarea>
     </section>
 
     <section class="card notes">
-      <h2>规则策略说明</h2>
+      <h2 data-i18n="notesTitle">规则策略说明</h2>
       <ul>
-        <li><strong>中国大陆：</strong>使用 ChinaMax 作为白名单，白名单内直连，未命中流量走代理。</li>
-        <li><strong>香港 / 澳门 / 防火墙外但有区域限制：</strong>仅 AI、TikTok 等受限制服务走代理，其他流量直连。</li>
-        <li><strong>广告拦截：</strong>可选加入 Advertising 规则，命中后 REJECT。</li>
-        <li><strong>节点安全：</strong>生成的文件只包含规则和占位策略组，不包含任何真实节点或订阅。</li>
+        <li data-i18n="noteMainland"><strong>中国大陆：</strong>使用 ChinaMax 作为白名单，白名单内直连，未命中流量走代理。</li>
+        <li data-i18n="noteRestricted"><strong>香港 / 澳门 / 防火墙外但有区域限制：</strong>仅 AI、TikTok 等受限制服务走代理，其他流量直连。</li>
+        <li data-i18n="noteAdblock"><strong>广告拦截：</strong>可选加入 Advertising 规则，命中后 REJECT。</li>
+        <li data-i18n="noteSafe"><strong>节点安全：</strong>生成的文件只包含规则和占位策略组，不包含任何真实节点或订阅。</li>
       </ul>
-      <p class="source-note">外部白名单和广告拦截规则来自 <a href="https://github.com/blackmatrix7/ios_rule_script" target="_blank" rel="noreferrer">blackmatrix7/ios_rule_script</a>，本项目的 AI / TikTok 限制规则来自仓库内规则集。</p>
+      <p class="source-note" data-i18n="sourceNote">外部白名单和广告拦截规则来自 blackmatrix7/ios_rule_script，本项目的 AI / TikTok 限制规则来自仓库内规则集。</p>
     </section>
   </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="assets/app.js"></script>
 </body>
 </html>
