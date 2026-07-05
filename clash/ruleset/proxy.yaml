@@ -4,8 +4,12 @@ payload:
   - DOMAIN-SUFFIX,oaistatic.com
   - DOMAIN-SUFFIX,oaiusercontent.com
   - DOMAIN-SUFFIX,openaiapi-site.azureedge.net
-  - DOMAIN-SUFFIX,claude.ai
   - DOMAIN-SUFFIX,anthropic.com
+  - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN,gemini.google.com
+  - DOMAIN,aistudio.google.com
+  - DOMAIN,ai.google.dev
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com
   - DOMAIN-SUFFIX,perplexity.ai
   - DOMAIN-SUFFIX,poe.com
   - DOMAIN-SUFFIX,cursor.sh
